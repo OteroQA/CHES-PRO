@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a15c5e97-be1a-4d63-803c-9c74362f5338" name="Changes" comment="" />
+    <list default="true" id="a15c5e97-be1a-4d63-803c-9c74362f5338" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/runners/MainRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/MainRunner.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,7 +61,7 @@
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Home.feature" />
       <option name="GLUE" value="stepDefinitions.base" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="CH-PRO" />
+      <module name="CHES-PRO" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
       <option name="SUGGESTED_NAME" value="Feature: Home" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
@@ -76,7 +80,7 @@
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Login.feature" />
       <option name="GLUE" value="stepDefinitions.base" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="CH-PRO" />
+      <module name="CHES-PRO" />
       <option name="NAME_FILTER" value="^Login correcto \- Campo email correcto\, contraseña correcta$" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Login correcto \- Campo email correcto\, contraseña correcta$&quot;" />
       <option name="SUGGESTED_NAME" value="Scenario: Login correcto - Campo email correcto, contraseña correcta" />
@@ -96,7 +100,7 @@
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Login.feature" />
       <option name="GLUE" value="stepDefinitions.base" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="CH-PRO" />
+      <module name="CHES-PRO" />
       <option name="NAME_FILTER" value="^Restablecer Contraseña \- Correctamente$" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Restablecer Contraseña \- Correctamente$&quot;" />
       <option name="SUGGESTED_NAME" value="Scenario: Restablecer Contraseña - Correctamente" />
@@ -116,7 +120,7 @@
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/Login.feature" />
       <option name="GLUE" value="stepDefinitions.base" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="CH-PRO" />
+      <module name="CHES-PRO" />
       <option name="NAME_FILTER" value="^Restablecer Contraseña \- Incorrectamente$" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Restablecer Contraseña \- Incorrectamente$&quot;" />
       <option name="SUGGESTED_NAME" value="Scenario: Restablecer Contraseña - Incorrectamente" />
@@ -131,8 +135,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="CHES-PRO" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="CHES-PRO" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MainRunner" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="CH-PRO" />
+      <module name="CHES-PRO" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="runners.*" />
