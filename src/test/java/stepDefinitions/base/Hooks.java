@@ -31,7 +31,7 @@ public class Hooks {
         //ByteArrayInputStream bais = new ByteArrayInputStream(((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES));
         //byte[] capturaPantalla = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES);
         //Allure.getLifecycle().addAttachment(timestamp.toString(), "image","png", capturaPantalla);
-         Allure.addAttachment(Allure.getLifecycle().getCurrentTestCaseOrStep().toString(), new ByteArrayInputStream(((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES)));
+        Allure.addAttachment(Allure.getLifecycle().getCurrentTestCaseOrStep().toString(), new ByteArrayInputStream(((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES)));
     }
 
     @After

@@ -1,0 +1,33 @@
+{
+  "uuid": "8e835934-9721-4e97-8ea0-7e3fb80e516b",
+  "name": "Scenario: CH Footer - Instagram",
+  "children": [
+    "fc7d5a52-e8c6-4f3d-bb9c-2a6317b8fe98"
+  ],
+  "befores": [
+    {
+      "name": "stepDefinitions.base.Hooks.setup()",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1703611891398,
+      "stop": 1703611892948
+    }
+  ],
+  "afters": [
+    {
+      "name": "stepDefinitions.base.Hooks.tearDown()",
+      "status": "passed",
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1703611912087,
+      "stop": 1703611912383
+    }
+  ],
+  "start": 1703611891396,
+  "stop": 1703611912384
+}

@@ -1,6 +1,6 @@
-Feature: Carolina Herrera - Funcionalidad de Login
 
-  @this
+Feature: Carolina Herrera - Funcionalidad de Login
+@this
   Scenario: Login incorrecto - Campos vacios
     Given Accedemos a la web de CH
     When Aceptamos todas las cookies
