@@ -2,7 +2,7 @@ Feature: Carolina Herrera - Funcionalidad de la Home
 
   Scenario: CH Footer - Newsletter
 
-  @asd
+
   Scenario: CH Footer - Instagram
     Given Accedemos a la web de CH
     When Aceptamos todas las cookies
