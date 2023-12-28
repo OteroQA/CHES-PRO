@@ -1,5 +1,6 @@
 package driver;
 
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -31,6 +32,7 @@ public class DriverFactory {
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
                 //chromeOptions.addArguments("--headless");
+                //chromeOptions.addArguments("start-maximized");
                 chromeOptions.addArguments("--remote-allow-origins=*");
                 driver = new ChromeDriver(chromeOptions);
                 break;
@@ -46,6 +48,8 @@ public class DriverFactory {
                 break;
             }
         }
+        //  Dimension dimension = new Dimension(1920, 1080);
+        // driver.manage().window().setSize(dimension);
         driver.manage().window().maximize();
         return driver;
     }

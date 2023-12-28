@@ -3,6 +3,7 @@ package stepDefinitions.base;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WindowType;
 import org.testng.Assert;
@@ -12,6 +13,77 @@ import static stepDefinitions.base.Hooks.captureImage;
 
 public class Home_Steps {
     private WebDriver driver = getDriver();
+
+    @And("Navegamos al localizador de tiendas")
+    public void navegamos_al_localizador_de_tiendas() {
+        try {
+            driver.findElement(By.xpath("//span[contains(text(),'LOCALIZADOR DE TIENDAS')]")).click();
+            Thread.sleep(5000);
+            captureImage();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @And("Hacemos click en preguntas frecuentes")
+    public void hacemos_click_en_preguntas_frecuentes() {
+        try {
+            driver.findElement(By.xpath("//a[contains(text(),'PREGUNTAS FRECUENTES')]")).click();
+            Thread.sleep(2000);
+            captureImage();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @And("Escogemos un pais y provincia")
+    public void escogemos_un_pais_y_provincia() {
+        try {
+            driver.findElement(By.xpath("//body/div[@id='contentWrapper']/div[@id='content']/div[@id='container_']/div[1]/div[1]/div[2]/form[1]/div[1]/span[1]/span[2]")).click();
+            Thread.sleep(1000);
+            driver.findElement(By.xpath("//span[contains(text(),'Estados Unidos')]")).click();
+            Thread.sleep(1000);
+            driver.findElement(By.xpath("//body/div[@id='contentWrapper']/div[@id='content']/div[@id='container_']/div[1]/div[1]/div[2]/form[1]/div[2]/span[1]/span[2]")).click();
+            Thread.sleep(1000);
+            driver.findElement(By.xpath("//span[contains(text(),'California')]")).click();
+            Thread.sleep(1500);
+            captureImage();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @And("Hacemos click en cambio de pais e idioma")
+    public void hacemos_click_en_cambio_de_pais_e_idioma() {
+        try {
+            driver.findElement(By.xpath("//a[@id='link-country']")).click();
+            Thread.sleep(1500);
+            captureImage();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @And("Cambiamos el pais y el idioma")
+    public void cambiamos_el_pais_y_el_idioma() {
+        try {
+            driver.findElement(By.xpath("//a[@id='link-country']")).click();
+            Thread.sleep(2000);
+            driver.findElement(By.xpath("//div[@id='modal-container' and contains(@class, 'active overflow-modal')]")).click();
+            Thread.sleep(1000);
+            driver.findElement(By.xpath("//li[@id='lblCountry-option-715837885']")).click();
+            Thread.sleep(1000);
+            driver.findElement(By.xpath("//span[contains(text(),'IDIOMA')]")).click();
+            Thread.sleep(1000);
+            driver.findElement(By.xpath("//li[@id='lblLanguage-option-https://chcarolinaherrera.com/us/en']")).click();
+            Thread.sleep(1000);
+            captureImage();
+            driver.findElement(By.xpath("//button[contains(text(),'Volver a la tienda')]")).click();
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     @And("Hacemos click en el enlace de Instagram en el footer")
     public void hacemos_click_en_el_enlace_de_instagram_en_el_footer() {
@@ -108,6 +180,38 @@ public class Home_Steps {
         }
     }
 
+
+    @Then("Se muestran las tiendas de esa zona")
+    public void se_muestran_las_tiendas_de_esa_zona() {
+        try {
+            JavascriptExecutor jse = (JavascriptExecutor) driver;
+            jse.executeScript("window.scrollBy(0,750)");
+            Thread.sleep(3000);
+            String textoTienda = driver.findElement(By.xpath("//h2[contains(text(),'CH LIVERMORE OUTLET')]")).getText().toUpperCase();
+            String textoTiendaEsperado = "CH LIVERMORE OUTLET".toUpperCase();
+            Assert.assertEquals(textoTienda, textoTiendaEsperado);
+            captureImage();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Then("Se abre el pop up de preguntas frecuentes")
+    public void se_abre_el_pop_up_de_preguntas_frecuentes() {
+        String textoPreguntasFrecuentes = driver.findElement(By.xpath("//h2[contains(text(),'Preguntas Frecuentes')]")).getText().toUpperCase();
+        String textoPreguntasFrecuentesEsperado = "PREGUNTAS FRECUENTES".toUpperCase();
+        Assert.assertEquals(textoPreguntasFrecuentes, textoPreguntasFrecuentesEsperado);
+        captureImage();
+    }
+
+    @Then("Somos redirigidos al pais en cuestion")
+    public void somos_redirigidos_al_pais_en_cuestion() {
+        String urlRedireccion = driver.getCurrentUrl().toUpperCase();
+        String urlRedireccionEsperado = "https://chcarolinaherrera.com/us/es";
+        Assert.assertEquals(urlRedireccion, urlRedireccionEsperado);
+        captureImage();
+    }
+
     @Then("Se abre el pop up de la politica de privacidad")
     public void Se_abre_el_pop_up_de_la_politica_de_privacidad() {
         String politicaPrivacidadTexto = driver.findElement(By.xpath("//span[contains(text(),'Política de Privacidad')]")).getText().toUpperCase();
@@ -169,6 +273,7 @@ public class Home_Steps {
         }
 
     }
+
     @Then("somos redirigidos a X")
     public void somos_redirigidos_a_x() {
 

@@ -1,5 +1,33 @@
 Feature: Carolina Herrera - Funcionalidad de la Home
 
+  Scenario: CH Header - Localizador de tiendas
+    Given Accedemos a la web de CH
+    When Aceptamos todas las cookies
+    And Navegamos al localizador de tiendas
+    And Escogemos un pais y provincia
+    Then Se muestran las tiendas de esa zona
+
+  Scenario: CH Header - Preguntas frecuentes
+    Given Accedemos a la web de CH
+    When Aceptamos todas las cookies
+    And Hacemos click en preguntas frecuentes
+    Then Se abre el pop up de preguntas frecuentes
+
+  @this
+    #Pdte corregir excepcion elemento no clickable en el dropdown de pais que se encuentra en el "And Cambiamos el Pais y el idioma"
+  Scenario: CH Header - Cambio pais e idioma
+    Given Accedemos a la web de CH
+    When Aceptamos todas las cookies
+    And Hacemos click en cambio de pais e idioma
+    And Cambiamos el pais y el idioma
+    Then Somos redirigidos al pais en cuestion
+@pdte
+  Scenario: CH Header - Mis Pedidos
+    Given Accedemos a la web de CH
+    When Aceptamos todas las cookies
+    And Hacemos click en mis pedidos
+    Then Se muestran mensajes de error con campos vacios
+
   Scenario: CH Footer - Instagram
     Given Accedemos a la web de CH
     When Aceptamos todas las cookies
