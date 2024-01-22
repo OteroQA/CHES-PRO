@@ -13,15 +13,14 @@ Feature: Carolina Herrera - Funcionalidad de la Home
     And Hacemos click en preguntas frecuentes
     Then Se abre el pop up de preguntas frecuentes
 
-  @this
-    #Pdte corregir excepcion elemento no clickable en el dropdown de pais que se encuentra en el "And Cambiamos el Pais y el idioma"
+
   Scenario: CH Header - Cambio pais e idioma
     Given Accedemos a la web de CH
     When Aceptamos todas las cookies
     And Hacemos click en cambio de pais e idioma
     And Cambiamos el pais y el idioma
     Then Somos redirigidos al pais en cuestion
-@pdte
+@this
   Scenario: CH Header - Mis Pedidos
     Given Accedemos a la web de CH
     When Aceptamos todas las cookies

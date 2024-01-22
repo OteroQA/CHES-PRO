@@ -67,12 +67,10 @@ public class Home_Steps {
     @And("Cambiamos el pais y el idioma")
     public void cambiamos_el_pais_y_el_idioma() {
         try {
-            driver.findElement(By.xpath("//a[@id='link-country']")).click();
-            Thread.sleep(2000);
-            driver.findElement(By.xpath("//div[@id='modal-container' and contains(@class, 'active overflow-modal')]")).click();
-            Thread.sleep(1000);
+            driver.findElement(By.xpath("//div[@id='lblCountry-combo']")).click();
+            Thread.sleep(3000);
             driver.findElement(By.xpath("//li[@id='lblCountry-option-715837885']")).click();
-            Thread.sleep(1000);
+            Thread.sleep(3000);
             driver.findElement(By.xpath("//span[contains(text(),'IDIOMA')]")).click();
             Thread.sleep(1000);
             driver.findElement(By.xpath("//li[@id='lblLanguage-option-https://chcarolinaherrera.com/us/en']")).click();
@@ -180,6 +178,17 @@ public class Home_Steps {
         }
     }
 
+    @And("Hacemos click en mis pedidos")
+    public void hacemos_click_en_mis_pedidos(){
+        try {
+            driver.findElement(By.xpath("//a[@id='link-guest-orders']")).click();
+            Thread.sleep(2000);
+            captureImage();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
     @Then("Se muestran las tiendas de esa zona")
     public void se_muestran_las_tiendas_de_esa_zona() {
@@ -206,7 +215,7 @@ public class Home_Steps {
 
     @Then("Somos redirigidos al pais en cuestion")
     public void somos_redirigidos_al_pais_en_cuestion() {
-        String urlRedireccion = driver.getCurrentUrl().toUpperCase();
+        String urlRedireccion = driver.getCurrentUrl();
         String urlRedireccionEsperado = "https://chcarolinaherrera.com/us/es";
         Assert.assertEquals(urlRedireccion, urlRedireccionEsperado);
         captureImage();
@@ -298,6 +307,24 @@ public class Home_Steps {
         String textoInformacionObligatoriaEsperado = "Información obligatoria".toUpperCase();
         Assert.assertEquals(textoInformacionObligatoria, textoInformacionObligatoriaEsperado);
         captureImage();
+    }
+
+    @Then("Se muestran mensajes de error con campos vacios")
+    public void se_muestran_mensajes_de_error_con_campos_vacios () {
+        try {
+            driver.findElement(By.xpath("//div[@id='modal-guest-order']")).isDisplayed();
+            driver.findElement(By.xpath("//button[@type='submit']")).click();
+            Thread.sleep(1000);
+            captureImage();
+           String errorEmailObtenido = driver.findElement(By.xpath("//div[@class='input-container error'][1]")).getText().toUpperCase();
+           String errorPedidoObtenido = driver.findElement(By.xpath("//div[@class='input-container error'][2]")).getText();
+           String errorEmailEsperado = "EMAIL *\n" + "INFORMACIÓN OBLIGATORIA";
+           String errorPedidoEsperado = "ID DE PEDIDO *\n" + "INFORMACIÓN OBLIGATORIA";
+           Assert.assertEquals(errorEmailObtenido, errorEmailEsperado);
+           Assert.assertEquals(errorPedidoObtenido, errorPedidoEsperado);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
